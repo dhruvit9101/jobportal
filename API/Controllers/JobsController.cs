@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
-using Microsoft.AspNetCore.Mvc;
 using API.Models.Recruiters;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RecruitersController : ControllerBase
+    public class JobsController : ControllerBase
     {
         private readonly DataContext _context;
-        public RecruitersController(DataContext context)
+        public JobsController(DataContext context)
         {
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recruiter>>> GetRecruiters()
+        public async Task<ActionResult<IEnumerable<Jobs>>> GetJobs()
         {
-            return await _context.Recruiters.ToListAsync();
+            return await _context.Jobs.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Recruiter>> GetRecruiters(int id)
+        public async Task<ActionResult<Jobs>> GetJobs(int id)
         {
-            return await _context.Recruiters.FindAsync(id);
+            return await _context.Jobs.FindAsync(id);
         }
     }
 }

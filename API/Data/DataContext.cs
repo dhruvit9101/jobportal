@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using API.Models.Recruiters;
 
-namespace API.Data.Recruiters
+namespace API.Data
 {
     public class DataContext : DbContext
     {
@@ -14,5 +14,6 @@ namespace API.Data.Recruiters
         }
 
         public DbSet<Recruiter> Recruiters { get; set; }
+        public DbSet<Jobs> Jobs { get; set; }
     }
 }
